@@ -3,58 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis API - Hero</title>
-    <!-- Google Fonts: Inter -->
+    <title>Sentiment AI | The API for Emotion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero-container">
-        <div class="glass-card">
-            <!-- Left Side: Content -->
-            <div class="content-left">
-                <h1>Understand Every <br><span class="highlight">Customer Feeling.</span></h1>
-                <p>Fast, accurate sentiment analysis at scale. The AI layer for your product.</p>
-                <a href="javascript:void(0)" onclick="alert('Button Clicked!')" class="cta-button">Get Started — Free</a>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple)"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Sentiment<span>AI</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Product</a>
+            <a href="#">Use Cases</a>
+            <a href="#">Pricing</a>
+            <a href="#">Docs</a>
+        </nav>
+        <button class="nav-cta">Get in Touch</button>
+    </header>
+
+    <div class="main-container">
+        <!-- Floating Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="sidebar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            </div>
+            <div class="sidebar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            </div>
+        </aside>
+
+        <!-- Hero Section -->
+        <main class="hero">
+            <div class="ambient-glow"></div>
+            
+            <!-- Left Content -->
+            <div class="hero-left">
+                <h1>Understand <br><span class="highlight">Every Feeling.</span></h1>
+                <p>Fast, highly accurate sentiment analysis at infinite scale. Built for modern product teams who care about their users.</p>
+                <a href="http://localhost:8000/docs" class="btn-primary">
+                    Start Analysis
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
 
-            <!-- Right Side: Glowing Code Block -->
-            <div class="code-right">
-                <div class="code-block" id="api-preview">
-                    <div class="window-controls">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+            <!-- Right Visuals -->
+            <div class="hero-right">
+                
+                <!-- Stat Card -->
+                <div class="glass-panel stat-card">
+                    <img src="assets/portrait.png" alt="User Growth">
+                    <div class="stat-info">
+                        <h4>2.8M+</h4>
+                        <p>Requests Today</p>
                     </div>
-<pre><code><span class="method">POST</span> /analyze
+                </div>
+
+                <!-- API Code Block -->
+                <div class="glass-panel code-card">
+                    <div class="code-header">
+                        <span class="dot r"></span>
+                        <span class="dot y"></span>
+                        <span class="dot g"></span>
+                    </div>
+                    <pre><code><span class="method">POST</span> /api/v1/analyze
 {
-  <span class="key">"text"</span>: <span class="string">"I absolutely love this API!"</span>
+  <span class="key">"text"</span>: <span class="string">"This new UI is absolutely stunning!"</span>
 }
 
-<span class="comment">// Response</span>
+<span class="comment">// Response (12ms)</span>
 {
   <span class="key">"sentiment"</span>: <span class="string">"positive"</span>,
-  <span class="key">"score"</span>: <span class="number">0.98</span>
+  <span class="key">"score"</span>: <span class="number">0.982</span>,
+  <span class="key">"emotion"</span>: <span class="string">"joy"</span>
 }</code></pre>
                 </div>
+
+                <!-- 3D Abstract -->
+                <img src="assets/abstract.png" class="abstract-3d" alt="Abstract 3D Element">
             </div>
-        </div>
+        </main>
     </div>
 
-    <!-- Minimalist Vanilla JS for subtle entrance animation -->
+    <!-- Entrance Animation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const card = document.querySelector('.glass-card');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
+            const left = document.querySelector('.hero-left');
+            const rightCards = document.querySelectorAll('.hero-right > *');
+            const sidebar = document.querySelector('.sidebar');
             
+            // Initial states
+            left.style.opacity = '0';
+            left.style.transform = 'translateX(-30px)';
+            sidebar.style.opacity = '0';
+            sidebar.style.transform = 'translateX(-20px)';
+            
+            // Animate Left Side & Sidebar
             setTimeout(() => {
-                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
+                left.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                left.style.opacity = '1';
+                left.style.transform = 'translateX(0)';
+                
+                sidebar.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s';
+                sidebar.style.opacity = '1';
+                sidebar.style.transform = 'translateX(0)';
             }, 100);
+
+            // Stagger Right Side Elements
+            rightCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(40px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = card.classList.contains('code-card') ? 'translateX(-20px) translateY(20px)' :
+                                         card.classList.contains('stat-card') ? 'translateY(-20px)' : 'translateY(0)';
+                }, 300 + (index * 200));
+            });
         });
     </script>
 </body>

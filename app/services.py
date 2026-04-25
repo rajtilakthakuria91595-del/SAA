@@ -7,12 +7,16 @@ def analyze_text(text: str) -> AnalyzeResponse:
     
     if score > 0:
         sentiment = "positive"
+        emotion = "joy" if score > 0.5 else "content"
     elif score < 0:
         sentiment = "negative"
+        emotion = "anger" if score < -0.5 else "sadness"
     else:
         sentiment = "neutral"
+        emotion = "neutral"
         
     return AnalyzeResponse(
         sentiment=sentiment,
-        score=score
+        score=score,
+        emotion=emotion
     )

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, field_validator
-from typing import Literal
+from typing import Literal, Optional
 
 class AnalyzeRequest(BaseModel):
     text: str
@@ -13,3 +13,4 @@ class AnalyzeRequest(BaseModel):
 class AnalyzeResponse(BaseModel):
     sentiment: Literal['positive', 'negative', 'neutral']
     score: float
+    emotion: Optional[str] = None
