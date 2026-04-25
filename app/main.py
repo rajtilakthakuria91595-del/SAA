@@ -32,8 +32,7 @@ if os.path.isdir(frontend_dir):
     app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
 
 if __name__ == "__main__":
-    # Fetch the port Render assigns, or default to 8000 locally
+    import os
+    # Render assigns a dynamic PORT, defaulting to 8000 locally
     port = int(os.environ.get("PORT", 8000))
-    
-    # Removed reload=True for production stability
     uvicorn.run("app.main:app", host="0.0.0.0", port=port)
