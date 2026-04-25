@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis API - Hero</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hero-container">
+        <div class="glass-card">
+            <!-- Left Side: Content -->
+            <div class="content-left">
+                <h1>Understand Every <br><span class="highlight">Customer Feeling.</span></h1>
+                <p>Fast, accurate sentiment analysis at scale. The AI layer for your product.</p>
+                <a href="javascript:void(0)" onclick="alert('Button Clicked!')" class="cta-button">Get Started — Free</a>
+            </div>
+
+            <!-- Right Side: Glowing Code Block -->
+            <div class="code-right">
+                <div class="code-block" id="api-preview">
+                    <div class="window-controls">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+<pre><code><span class="method">POST</span> /analyze
+{
+  <span class="key">"text"</span>: <span class="string">"I absolutely love this API!"</span>
+}
+
+<span class="comment">// Response</span>
+{
+  <span class="key">"sentiment"</span>: <span class="string">"positive"</span>,
+  <span class="key">"score"</span>: <span class="number">0.98</span>
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimalist Vanilla JS for subtle entrance animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.glass-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

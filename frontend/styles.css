@@ -1,0 +1,194 @@
+/* CSS Reset & Variables */
+:root {
+    --primary: #111827; /* Dark text */
+    --secondary: #4b5563; /* Muted text */
+    --accent-start: #E0C3FC;
+    --accent-end: #8EC5FC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Soft moving linear gradient */
+    background: linear-gradient(-45deg, #E0C3FC, #8EC5FC, #f3e7fc, #e5f0fc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Glassmorphic Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 4.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+/* Typography & Left Content */
+.content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content-left h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+}
+
+.content-left h1 .highlight {
+    background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content-left p {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    max-width: 420px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 1.125rem 2.25rem;
+    border-radius: 9999px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px -10px rgba(17, 24, 39, 0.5);
+}
+
+.cta-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(17, 24, 39, 0.4), 0 8px 10px -6px rgba(17, 24, 39, 0.2);
+}
+
+/* Right Side - Code Block */
+.code-right {
+    position: relative;
+    perspective: 1000px;
+}
+
+.code-block {
+    background: #111827; /* Dark grayish-blue */
+    border-radius: 1rem;
+    padding: 1.75rem;
+    /* Soft glow around the code block matching the theme */
+    box-shadow: 0 0 50px rgba(142, 197, 252, 0.4), 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    transform: rotateY(-5deg) rotateX(5deg);
+}
+
+.code-block:hover {
+    box-shadow: 0 0 70px rgba(224, 195, 252, 0.6), 0 25px 30px -5px rgba(0, 0, 0, 0.3);
+    transform: rotateY(0deg) rotateX(0deg) translateY(-5px);
+}
+
+.window-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #10b981; }
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+}
+
+code {
+    color: #e5e7eb;
+}
+
+/* Minimal Syntax Highlighting */
+.method { color: #60a5fa; font-weight: bold; }
+.key { color: #a78bfa; }
+.string { color: #34d399; }
+.number { color: #fbbf24; }
+.comment { color: #9ca3af; font-style: italic; }
+
+/* Responsive Adjustments */
+@media (max-width: 968px) {
+    .glass-card {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+        gap: 3rem;
+    }
+
+    .content-left h1 {
+        font-size: 3.5rem;
+    }
+    
+    .code-block {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-left h1 {
+        font-size: 2.5rem;
+    }
+    
+    .glass-card {
+        padding: 2rem;
+    }
+}
