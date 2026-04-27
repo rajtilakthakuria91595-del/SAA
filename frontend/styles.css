@@ -154,6 +154,7 @@ header {
 .hero-left h1 .highlight {
     background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
