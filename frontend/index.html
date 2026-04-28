@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment AI | The API for Emotion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Navigation -->
     <header>
         <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple)"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple)">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
             Sentiment<span>AI</span>
         </div>
         <nav class="nav-links">
@@ -30,33 +36,43 @@
         <!-- Floating Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
             </div>
             <div class="sidebar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v8M8 12h8" />
+                </svg>
             </div>
             <div class="sidebar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                </svg>
             </div>
         </aside>
 
         <!-- Hero Section -->
         <main class="hero">
             <div class="ambient-glow"></div>
-            
+
             <!-- Left Content -->
             <div class="hero-left">
                 <h1>Understand <br><span class="highlight">Every Feeling.</span></h1>
-                <p>Fast, highly accurate sentiment analysis at infinite scale. Built for modern product teams who care about their users.</p>
-                <a href="http://localhost:8000/docs" class="btn-primary">
+                <p>Fast, highly accurate sentiment analysis at infinite scale. Built for modern product teams who care
+                    about their users.</p>
+                <a href={`${import.meta.env.VITE_API_URL}/docs`} class="btn-primary">
                     Start Analysis
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                 </a>
             </div>
 
             <!-- Right Visuals -->
             <div class="hero-right">
-                
+
                 <!-- Stat Card -->
                 <div class="glass-panel stat-card">
                     <img src="assets/portrait.png" alt="User Growth">
@@ -98,19 +114,19 @@
             const left = document.querySelector('.hero-left');
             const rightCards = document.querySelectorAll('.hero-right > *');
             const sidebar = document.querySelector('.sidebar');
-            
+
             // Initial states
             left.style.opacity = '0';
             left.style.transform = 'translateX(-30px)';
             sidebar.style.opacity = '0';
             sidebar.style.transform = 'translateX(-20px)';
-            
+
             // Animate Left Side & Sidebar
             setTimeout(() => {
                 left.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
                 left.style.opacity = '1';
                 left.style.transform = 'translateX(0)';
-                
+
                 sidebar.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s';
                 sidebar.style.opacity = '1';
                 sidebar.style.transform = 'translateX(0)';
@@ -120,15 +136,16 @@
             rightCards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(40px)';
-                
+
                 setTimeout(() => {
                     card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
                     card.style.opacity = '1';
                     card.style.transform = card.classList.contains('code-card') ? 'translateX(-20px) translateY(20px)' :
-                                         card.classList.contains('stat-card') ? 'translateY(-20px)' : 'translateY(0)';
+                        card.classList.contains('stat-card') ? 'translateY(-20px)' : 'translateY(0)';
                 }, 300 + (index * 200));
             });
         });
     </script>
 </body>
+
 </html>
